@@ -1,15 +1,15 @@
-import { Provider, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import Cart from './components/Cart/Cart';
 import Layout from './components/Layout/Layout';
 import Products from './components/Shop/Products';
-import store from './store';
 
 function App() {
-  const toggleState = useSelector((state) => state.cart.toggleCart);
+  const showCart = useSelector((state) => state.ui.cartIsVisible);
+
   return (
     <Layout>
-      {toggleState && <Cart />}
+      {showCart && <Cart />}
       <Products />
     </Layout>
   );
